@@ -1,5 +1,9 @@
 # Quora-Instagram mashup -- Name TBD
 
+[Trello link][trello]
+
+[trello]: https://trello.com/b/ScwBLLvg/quora-insta-fullstack
+
 ## Minimum Viable Product
 This project will be a question-and-answer app, with functionality similar to Quora, with one catch -- all answers must come in the form of images. Think Quora functionality with an Instagram interface.
 
@@ -24,6 +28,7 @@ Bonus features include
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
+
 
 [wireframes]: wireframes
 [components]: component-hierarchy.md
