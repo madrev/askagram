@@ -23,7 +23,6 @@ Bonus features include
 * [React Components][components]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
-* [Redux Structure][redux-structure]
 * [Sample State][sample-state]
 
 [wireframes]: wireframes
