@@ -45,14 +45,17 @@ Bonus features include
 **Objective:** Photo-answers and Likes can be created, read, and destroyed through
 the API.
 * NB: Questions will need to be supported at the DB/model level (with a few questions seeded) in order to develop proper API queries, actions and component rendering. Client-side question manipulation will be saved for phase 3.
+* Implement QuestionDetail view and AddAnswerModal
 
 ### Phase 3: Questions (1 day)
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** Questions can be created, read, edited and destroyed through the API.
+* Implement NewQuestionForm modal
+* Implement QuestionIndex
 
 ### Phase 4: Search (2 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Questions can be searched. Search bar in nav component will update with search results to select from.
 * Add search bar to nav component
 
 ### Phase 5: Styling & Cleanup (1 day)
