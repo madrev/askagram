@@ -14,7 +14,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 image_url   | string    | not null
-caption     | string    |
 user_id     | integer   | not null, foreign key (references users), indexed
 question_id | integer   | not null, foreign key (references questions), indexed
 
