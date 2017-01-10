@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,10 @@
   "bugs": {
     "url": "https://github.com/madrev/fullstack/issues"
   },
+  "engines": {
+  "node": "6.2.1",
+  "npm": "3.9.3"
+},
   "homepage": "https://github.com/madrev/fullstack#readme",
   "dependencies": {
     "babel-core": "^6.21.0",
