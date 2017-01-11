@@ -5,15 +5,14 @@ html {
 
 body {
 	margin: 0 auto;
-	font-family: $serif;
+	font-family: $sans-serif;
 	font-size: 18px;
 }
 
-button {
+button, input[type="submit"] {
 	background-color: $gray;
 	border-color: transparent;
-	color: inherit;
-	font-weight: bold;
+	color: white;
 	text-transform: uppercase;
 	text-align: center;
   border-radius: 5px;

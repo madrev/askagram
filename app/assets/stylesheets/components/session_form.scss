@@ -1,0 +1,21 @@
+.session-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px 40px;
+  background-color: $lightest-gray;
+  // TODO: place in grid
+  margin: 60px auto;
+  border-radius: 5px;
+
+
+  h2, input {
+    margin-bottom: 40px;
+  }
+
+  input[type="submit"] {
+    width: 40%;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+}

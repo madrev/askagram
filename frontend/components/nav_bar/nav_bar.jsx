@@ -5,7 +5,7 @@ import AuthDisplay from './auth_display';
 
 const NavBar = ({ currentUser, logout}) => (
   <nav className="main-nav">
-    <h1>Askagram</h1>
+    <h1 className="logo">askagram</h1>
     <AuthDisplay currentUser={ currentUser } logout={ logout } />
   </nav>
 );

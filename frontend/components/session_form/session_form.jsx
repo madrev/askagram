@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
   }
 
   render(){
-    return <form onSubmit={ this.handleSubmit }>
+    return <form className="session-form" onSubmit={ this.handleSubmit }>
       <h2>{this.props.formType === 'signup' ? 'Sign Up' : 'Log In'}</h2>
       {this.props.errors ? this.errorList() : ""}
       <input type="text"
