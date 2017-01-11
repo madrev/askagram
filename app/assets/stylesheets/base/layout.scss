@@ -1,0 +1,68 @@
+html {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 18px;
+}
+
+button {
+	background-color: $gray;
+	border-color: transparent;
+	color: inherit;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: $dark-gray;
+}
+
+
+a:hover {
+	text-decoration: underline;
+}
+/*
+	Header Rules
+*/
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: $light-gray;
+}
+
+.hr-top, .hr-bottom {
+	width: 100%;
+	margin: 0;
+}
+
+.hr-top {
+	height: 2px;
+	margin-bottom: 1px;
+}
+
+.hidden {
+	display: none;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+span {
+  font-size: 1em;
+}
+
+input[type="text"], input[type="password"] {
+  border-bottom: 2px solid $darkest-purple;
+}

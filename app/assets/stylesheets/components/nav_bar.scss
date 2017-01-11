@@ -1,0 +1,19 @@
+.main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $darkest-purple;
+  color: white;
+  padding: 30px;
+}
+
+.auth-display {
+  display: block;
+
+  * {
+    display: block;
+    padding: 10px 20px;;
+    float: left;
+  }
+}
