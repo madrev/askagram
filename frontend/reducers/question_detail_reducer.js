@@ -7,7 +7,6 @@ const questionDetailReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_QUESTION_DETAIL:
-    debugger;
       console.log(action.questionDetail);
       return action.questionDetail;
     default:
