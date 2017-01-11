@@ -9,7 +9,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = Question.find_by_id(params[:id])
     if @question
       @question.destroy
       render :show
@@ -19,7 +19,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find_by_id(params[:id])
     if @question
       render :show
     else

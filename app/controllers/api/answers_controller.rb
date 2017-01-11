@@ -10,7 +10,7 @@ class Api::AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
+    @answer = Answer.find_by_id(params[:id])
     if @answer
       @answer.destroy
       render :show
