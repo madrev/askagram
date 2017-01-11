@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form.jsx';
-import { signup, login, demoLogin } from "../../actions/session_actions";
+import { signup, login, demoLogin, clearErrors } from "../../actions/session_actions";
 
 
 
@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     if(formType === 'signup') return dispatch(signup(user));
     else return dispatch(login(user));
   },
-  demoLogin: () => dispatch(demoLogin())
+  demoLogin: () => dispatch(demoLogin()),
+  clearErrors: () => dispatch(clearErrors())
   });
 
   export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

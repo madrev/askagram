@@ -13,6 +13,11 @@ class SessionForm extends React.Component {
     this.handleDemoButton = this.handleDemoButton.bind(this);
   }
 
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.errors) this.props.clearErrors();
+  }
+
   componentDidUpdate() {
     this.redirect();
   }
