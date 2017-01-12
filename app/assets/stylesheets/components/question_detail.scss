@@ -1,0 +1,26 @@
+.question-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 40px auto;
+
+    .answer-detail {
+      width: 100%;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .answer-metadata {
+        display: flex;
+        flex-direction: column;
+      }
+
+
+      img {
+        width: 70%;
+      }
+
+  }
+}

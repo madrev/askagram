@@ -1,4 +1,5 @@
 import React from 'react';
+import AnswerDetail from './answer_detail';
 
 
 class QuestionDetail extends React.Component {
@@ -20,10 +21,12 @@ class QuestionDetail extends React.Component {
 
 
   render() {
-    console.log(this.props.answers);
     return <div className="question-detail">
       <h2>{this.props.title}</h2>
-      {this.answerList()}
+      <span>{this.props.description}</span>
+      { this.props.answers ?
+        this.props.answers.map((answer, idx) => <AnswerDetail key={idx} answer={answer} />)
+        : "" }
     </div>;
   }
 }
