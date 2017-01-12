@@ -10,8 +10,21 @@ class QuestionDetail extends React.Component {
     this.props.fetchQuestionDetail(this.props.params.questionId);
   }
 
+  answerList() {
+    if( this.props.answers) {
+      return <ul>
+         {this.props.answers.map( answer => <li><img src={answer.image_url} /></li> ) }
+      </ul>;
+    }
+  }
+
+
   render() {
-    return <p>{this.props.questionDetail.title}</p>;
+    console.log(this.props.answers);
+    return <div className="question-detail">
+      <h2>{this.props.title}</h2>
+      {this.answerList()}
+    </div>;
   }
 }
 

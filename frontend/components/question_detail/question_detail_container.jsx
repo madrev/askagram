@@ -3,7 +3,9 @@ import QuestionDetail from './question_detail.jsx';
 import  { fetchQuestionDetail } from '../../actions/question_actions.js';
 
 const mapStateToProps = ({ questionDetail }) => ({
-  questionDetail
+  title: questionDetail.title,
+  description: questionDetail.description,
+  answers: questionDetail.answers
 });
 
 const mapDispatchToProps = dispatch => ({
