@@ -19,30 +19,30 @@ class UploadForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
- // TODO: move answer creation to a button handler, keep file in state
+
   onImageDrop(files) {
     this.setState({
       selectedFile: files[0]
     });
-
- }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createAnswer(this.state.selectedFile, this.questionId, this.currentUserId);
-    this.redirectToDetail();
+    this.props.createAnswer(this.state.selectedFile,
+                            this.questionId,
+                            this.currentUserId).then(() => this.redirectToDetail());
 
   }
 
   redirectToDetail() {
-    this.props.router.push(`/questions/${this.questionId}`);
+    this.props.router.push(`/question/${this.questionId}`);
   }
 
 
 
   render() {
     return(
-      <form onSubmit>
+      <form onSubmit={this.handleSubmit}>
             <div className="FileUpload">
               <Dropzone
                 onDrop={this.onImageDrop}
@@ -53,11 +53,10 @@ class UploadForm extends React.Component{
             </div>
 
             <div>
-              <p>{this.state.uploadedFile.name}</p>
+              <span>Selected File: {this.state.selectedFile ? this.state.selectedFile.name : ""}</span>
             </div>
 
-            <input type="submit" val="Upload Answer"></input>
-
+            <input type="submit" value="Upload Answer"></input>
 
         </form>
       );
