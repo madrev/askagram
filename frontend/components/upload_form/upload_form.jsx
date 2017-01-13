@@ -10,47 +10,39 @@ class UploadForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
+      selectedFile: null
     };
     this.currentUserId = this.props.currentUser.id;
     this.questionId = this.props.params.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
  // TODO: move answer creation to a button handler, keep file in state
   onImageDrop(files) {
     this.setState({
-      uploadedFile: files[0]
+      selectedFile: files[0]
     });
 
-    this.props.createAnswer(files[0], this.questionId, this.currentUserId);
-
-  // this.handleImageUpload(files[0]);
  }
 
-  // handleImageUpload(file) {
-  //   let upload = request.post(CLOUDINARY_UPLOAD_URL)
-  //                       .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-  //                       .field('file', file);
-  //
-  //   upload.end((err, response) => {
-  //     if (err) {
-  //       console.error(err);
-  //     }
-  //
-  //     if (response.body.secure_url !== '') {
-  //       this.setState({
-  //         uploadedFileCloudinaryUrl: response.body.secure_url
-  //       });
-  //     }
-  //   });
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createAnswer(this.state.selectedFile, this.questionId, this.currentUserId);
+    this.redirectToDetail();
+
+  }
+
+  redirectToDetail() {
+    this.props.router.push(`/questions/${this.questionId}`);
+  }
 
 
 
   render() {
     return(
-      <form>
+      <form onSubmit>
             <div className="FileUpload">
               <Dropzone
                 onDrop={this.onImageDrop}
@@ -61,12 +53,12 @@ class UploadForm extends React.Component{
             </div>
 
             <div>
-              {this.state.uploadedFileCloudinaryUrl === '' ? null :
-              <div>
-                <p>{this.state.uploadedFile.name}</p>
-                <img src={this.state.uploadedFileCloudinaryUrl} />
-              </div>}
+              <p>{this.state.uploadedFile.name}</p>
             </div>
+
+            <input type="submit" val="Upload Answer"></input>
+
+
         </form>
       );
     }
