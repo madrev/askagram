@@ -2,7 +2,9 @@ import { RECEIVE_QUESTION_DETAIL } from "../actions/question_actions.js";
 import { RECEIVE_NEW_ANSWER, REMOVE_ANSWER } from "../actions/answer_actions.js";
 import merge from 'lodash/merge';
 
-const _defaultState =  {};
+const _defaultState =  {
+  answers: []
+};
 
 const questionDetailReducer = (state = _defaultState, action) => {
   Object.freeze(state);

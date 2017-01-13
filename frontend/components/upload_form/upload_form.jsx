@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { sendToCloudinary } from '../../util/answer_api_util.js';
+import { withRouter } from 'react-router';
 
 
 class UploadForm extends React.Component{
@@ -27,7 +28,7 @@ class UploadForm extends React.Component{
     e.preventDefault();
     this.props.createAnswer(this.state.selectedFile,
                             this.questionId,
-                            this.currentUserId).then(() => this.props.redirectToDetail());
+                            this.currentUserId).then(() => this.redirectToDetail());
 
   }
 
@@ -63,4 +64,4 @@ class UploadForm extends React.Component{
 
 
 }
-export default UploadForm;
+export default withRouter(UploadForm);
