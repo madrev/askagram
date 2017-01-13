@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import AuthDisplay from './auth_display';
 
 
-const NavBar = ({ currentUser, logout}) => (
-  <nav className="main-nav">
-    <h1 className="logo">askagram</h1>
-    <AuthDisplay currentUser={ currentUser } logout={ logout } />
-  </nav>
-);
+class NavBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.logoutAndRedirect = this.logoutAndRedirect.bind(this);
+  }
 
+  logoutAndRedirect() {
+    console.log(this.props);
+    this.props.logout();
+    this.props.router.push('/');
+  }
 
+  render() {
+    return <nav className="main-nav">
+      <h1 className="logo">askagram</h1>
+      <AuthDisplay currentUser={ this.props.currentUser } logout={ this.logoutAndRedirect } />
+    </nav>;
+  }
 
-export default NavBar;
+}
+
+export default withRouter(NavBar);
