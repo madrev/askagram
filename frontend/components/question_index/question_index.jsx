@@ -23,8 +23,6 @@ class QuestionIndex extends React.Component {
     </div>;
   }
 
-
-
 }
 
 export default QuestionIndex;

@@ -27,6 +27,7 @@ class QuestionDetail extends React.Component {
       { this.props.answers ?
         this.props.answers.map((answer, idx) => <AnswerDetail key={idx} answer={answer} />)
         : "" }
+        {  this.props.children }
     </div>;
   }
 }

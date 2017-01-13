@@ -5,10 +5,11 @@ import App from "./app";
 import SessionFormContainer from "./session_form/session_form_container";
 import QuestionDetailContainer from "./question_detail/question_detail_container";
 import QuestionIndexContainer from "./question_index/question_index_container";
+import UploadFormContainer from "./upload_form/upload_form_container";
 
 
 
-const Root = ({ store }) => {
+const Root = ({ store, cl }) => {
 
   const _redirectIfLoggedIn = (nextState, replace) => {
     let currentUser = store.getState().session.currentUser;
@@ -24,8 +25,10 @@ const Root = ({ store }) => {
                                onEnter = { _redirectIfLoggedIn } />
           <Route path="/signup" component= { SessionFormContainer }
                                onEnter = { _redirectIfLoggedIn } />
-          <Route path="/questions/" component= { QuestionIndexContainer } />
-          <Route path="/questions/:questionId" component= { QuestionDetailContainer } />
+          <Route path="/questions" component= { QuestionIndexContainer } />
+          <Route path="/question/:questionId" component= { QuestionDetailContainer } >
+            <Route path="/question/:questionId/upload" component= { UploadFormContainer } />
+          </Route>
         </Route>
       </Router>
     </Provider>
