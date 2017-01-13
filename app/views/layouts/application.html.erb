@@ -6,6 +6,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <!-- <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"              type="text/javascript"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"              type="text/javascript"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"                    type="text/javascript"></script>
+    <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"              type="text/javascript"></script>
+    <script src="node_modules/cloudinary-jquery-file-upload/cloudinary-jquery-file-upload.js" type="text/javascript"></script> -->
+
+    <script type="text/javascript">
+      window.CLOUDINARY_OPTIONS = {
+        cloud_name: "askagram",
+        upload_preset: "askagram"
+      };
+    </script>
+
+
   </head>
 
   <body>

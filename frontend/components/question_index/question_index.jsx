@@ -7,7 +7,6 @@ class QuestionIndex extends React.Component {
     super(props);
   }
 
-// TODO: componentwillmount?
   componentDidMount() {
     this.props.fetchQuestions();
   }
@@ -16,7 +15,6 @@ class QuestionIndex extends React.Component {
   render() {
     let questionKeys = Object.keys(this.props.questions);
 
-    debugger;
     return <div className="question-index">
       <ul>
         { questionKeys.map((id, idx) =>
