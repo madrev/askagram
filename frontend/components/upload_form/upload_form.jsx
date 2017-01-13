@@ -1,20 +1,17 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import request from 'superagent';
 import { sendToCloudinary } from '../../util/answer_api_util.js';
 
-const CLOUDINARY_UPLOAD_PRESET = 'askagram';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/askagram/upload';
 
 class UploadForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      uploadedFileCloudinaryUrl: '',
       selectedFile: null
     };
+
     this.currentUserId = this.props.currentUser.id;
-    this.questionId = this.props.params.questionId;
+    this.questionId = this.props.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,13 +27,15 @@ class UploadForm extends React.Component{
     e.preventDefault();
     this.props.createAnswer(this.state.selectedFile,
                             this.questionId,
-                            this.currentUserId).then(() => this.redirectToDetail());
+                            this.currentUserId).then(() => this.props.redirectToDetail());
 
   }
 
   redirectToDetail() {
-    this.props.router.push(`/question/${this.questionId}`);
+    this.props.closeModal();
+    if(this.props.fromIndex) this.props.router.push(`/question/${this.questionId}`);
   }
+
 
 
 

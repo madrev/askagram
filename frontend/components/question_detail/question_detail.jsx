@@ -1,49 +1,56 @@
 import React from 'react';
 import AnswerDetail from './answer_detail';
+import Modal from 'react-modal';
+import modalStyle from '../styles/modal_style';
+import UploadFormContainer from '../upload_form/upload_form_container';
+
 
 
 class QuestionDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.answers = this.props.answers;
+    this.state = {
+      modalOpen: false
+    };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount () {
     this.props.fetchQuestionDetail(this.props.params.questionId);
   }
 
-  componentWillReceiveProps(newProps) {
-    this.answers = newProps.answers;
-    console.log(this.answers);
-    this.render();
-  }
-
-
-  // answerList() {
-  //   if( this.props.answers) {
-  //     return <ul>
-  //        {this.props.answers.map( answer => <li><img src={answer.image_url} /></li> ) }
-  //     </ul>;
-  //   }
-  // }
   ownAnswer(answer) {
-    return answer.poster.id == this.props.currentUser.id;
+    return answer.poster.id === this.props.currentUser.id;
   }
 
+  openModal(e) {
+    e.preventDefault();
+    this.setState({ modalOpen: true});
+  }
 
-
+  closeModal() {
+    this.setState({ modalOpen: false});
+  }
 
   render() {
+    const allAnswers = this.props.answers || [];
     return <div className="question-detail">
       <h2>{this.props.title}</h2>
       <span>{this.props.description}</span>
+      <button onClick={this.openModal}>Add Answer</button>
       {  this.props.children }
-      { this.answers ?
-        this.answers.map((answer) => <AnswerDetail key={answer.id}
+      {  allAnswers.map((answer) => <AnswerDetail key={answer.id}
                                                         answer={answer}
                                                         ownAnswer={this.ownAnswer(answer)}
-                                                        deleteAnswer={this.props.deleteAnswer} />)
-        : "" }
+                                                        deleteAnswer={this.props.deleteAnswer} />) }
+      <Modal isOpen={this.state.modalOpen}
+             onRequestClose={this.closeModal}
+             style={modalStyle}
+             contentLabel="Answer Upload Form">
+        <UploadFormContainer questionId={this.props.params.questionId}
+                             closeModal={this.closeModal}/>
+      </Modal>
     </div>;
   }
 }

@@ -5,7 +5,6 @@ class AnswerDetail extends React.Component {
     super(props);
     this.answer = this.props.answer;
     this.handleDelete = this.handleDelete.bind(this);
-    console.log(this.props.ownAnswer);
   }
 
   handleDelete(id) {
