@@ -16,6 +16,11 @@ const Root = ({ store, cl }) => {
     if(currentUser) replace('/');
   };
 
+  const _redirectUnlessLoggedIn = (nextState, replace) => {
+    let currentUser = store.getState().session.currentUser;
+    if(!currentUser) replace('/login');
+  };
+
 
   return (
     <Provider store={ store }>
@@ -25,8 +30,10 @@ const Root = ({ store, cl }) => {
                                onEnter = { _redirectIfLoggedIn } />
           <Route path="/signup" component= { SessionFormContainer }
                                onEnter = { _redirectIfLoggedIn } />
-          <Route path="/questions" component= { QuestionIndexContainer } />
-          <Route path="/question/:questionId" component= { QuestionDetailContainer } >
+          <Route path="/questions" component= { QuestionIndexContainer }
+                                   onEnter = { _redirectUnlessLoggedIn } />
+          <Route path="/question/:questionId" component= { QuestionDetailContainer }
+                                              onEnter = { _redirectUnlessLoggedIn } >
             <Route path="/question/:questionId/upload" component= { UploadFormContainer } />
           </Route>
         </Route>
