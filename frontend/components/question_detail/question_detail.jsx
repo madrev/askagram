@@ -19,13 +19,18 @@ class QuestionDetail extends React.Component {
   }
 
 
-  answerList() {
-    if( this.props.answers) {
-      return <ul>
-         {this.props.answers.map( answer => <li><img src={answer.image_url} /></li> ) }
-      </ul>;
-    }
+  // answerList() {
+  //   if( this.props.answers) {
+  //     return <ul>
+  //        {this.props.answers.map( answer => <li><img src={answer.image_url} /></li> ) }
+  //     </ul>;
+  //   }
+  // }
+  ownAnswer(answer) {
+    return answer.poster.id == this.props.currentUser.id;
   }
+
+
 
 
   render() {
@@ -34,7 +39,10 @@ class QuestionDetail extends React.Component {
       <span>{this.props.description}</span>
       {  this.props.children }
       { this.answers ?
-        this.answers.map((answer, idx) => <AnswerDetail key={idx} answer={answer} />)
+        this.answers.map((answer) => <AnswerDetail key={answer.id}
+                                                        answer={answer}
+                                                        ownAnswer={this.ownAnswer(answer)}
+                                                        deleteAnswer={this.props.deleteAnswer} />)
         : "" }
     </div>;
   }

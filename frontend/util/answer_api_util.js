@@ -22,3 +22,10 @@ export const createAnswer = (image_url, question_id, user_id) => (
     data: { "answer": {image_url, user_id}}
   })
 );
+
+export const deleteAnswer = id => (
+  $.ajax({
+    method: "DELETE",
+    url: `api/answers/${id}`
+  })
+);
