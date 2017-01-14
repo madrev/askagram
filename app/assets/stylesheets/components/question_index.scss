@@ -1,0 +1,29 @@
+.question-index-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .answer-thumbnails {
+    display: flex;
+    flex-direction: row;
+
+    img,button {
+      display: block;
+      margin: 20px;
+      width:250px;
+      height: 250px;
+    }
+
+    img:hover {
+      opacity: 0.75;
+    }
+
+    button {
+      border-radius: 0px;
+    }
+
+
+  }
+
+
+}

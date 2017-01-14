@@ -3,7 +3,7 @@
   json.set! question.id do
     json.extract! question, :title, :id
     json.set! :answers do
-      json.array! question.answers, :id, :user_id, :image_url
+      json.array! question.answers.reverse, :id, :user_id, :image_url
     end
   end
 end

@@ -18,7 +18,7 @@ export const removeAnswer = id => ({
 export const createAnswer = (file, questionId, userId) => dispatch =>
 (
   APIUtil.sendToCloudinary(file).then(
-    res => APIUtil.createAnswer(res.secure_url, questionId, userId ),
+    res => APIUtil.createAnswer(res.url, questionId, userId ),
     err => console.log(err.responseJSON) ).then(
     res2 => dispatch(receiveNewAnswer(res2), err => console.log(err.responseJSON)))
 );
