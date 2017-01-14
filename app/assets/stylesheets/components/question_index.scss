@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 
   .answer-thumbnails {
     display: flex;
     flex-direction: row;
+    width: 80%;
 
     img, button {
       display: block;
       margin: 20px;
-      width:250px;
+      width: 250px;
       height: 250px;
     }
 
