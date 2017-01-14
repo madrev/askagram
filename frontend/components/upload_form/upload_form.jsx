@@ -8,13 +8,15 @@ class UploadForm extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      selectedFile: null
+      selectedFile: null,
+      externalUrl: null
     };
 
     this.currentUserId = this.props.currentUser.id;
     this.questionId = this.props.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onUrlChange = this.onUrlChange.bind(this);
   }
 
 
@@ -24,9 +26,14 @@ class UploadForm extends React.Component{
     });
   }
 
+  onUrlChange(e) {
+    this.setState({ externalUrl: e.target.value});
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createAnswer(this.state.selectedFile,
+    const fileContent = this.state.selectedFile || this.state.externalUrl;
+    this.props.createAnswer(fileContent,
                             this.questionId,
                             this.currentUserId).then(() => this.redirectToDetail());
 
@@ -38,13 +45,14 @@ class UploadForm extends React.Component{
   }
 
 
-
-
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <div className="upload-form-container">
+
+        <form onSubmit={this.handleSubmit}>
             <div className="FileUpload">
               <Dropzone
+                className="dropzone"
                 onDrop={this.onImageDrop}
                 multiple={false}
                 accept="image/*">
@@ -55,10 +63,13 @@ class UploadForm extends React.Component{
             <div>
               <span>Selected File: {this.state.selectedFile ? this.state.selectedFile.name : ""}</span>
             </div>
-
+            <label>Or enter an external url: 
+            <input type="text" onChange={ this.onUrlChange} value={this.state.externalUrl}></input>
+            </label>
             <input type="submit" value="Upload Answer"></input>
 
         </form>
+      </div>
       );
     }
 

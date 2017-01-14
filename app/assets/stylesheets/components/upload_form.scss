@@ -1,0 +1,21 @@
+.upload-form-container {
+
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .dropzone {
+      border-width: 2px;
+      border-color: $dark-gray;
+      border-style: dashed;
+      padding: 20px 40px;
+    }
+    * {
+      margin: 10px auto;
+    }
+  }
+
+
+
+}
