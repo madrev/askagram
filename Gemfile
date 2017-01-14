@@ -27,6 +27,7 @@ gem 'bcrypt'
 gem 'rails_12factor'
 gem 'pry-rails'
 gem 'figaro'
+gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

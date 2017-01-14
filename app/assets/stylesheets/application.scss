@@ -14,6 +14,9 @@
  *= require_self
  */
 // CSS Reset
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "base/reset.scss";
 
 // Core

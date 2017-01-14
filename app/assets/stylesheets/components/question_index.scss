@@ -14,9 +14,22 @@
       height: 250px;
     }
 
-    img:hover {
+    .arrow-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100px;
+
+      span {
+        color: $gray;
+      }
+
+    }
+
+    img:hover, span:hover {
       opacity: 0.75;
     }
+
 
     button {
       border-radius: 0px;
