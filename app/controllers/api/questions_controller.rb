@@ -2,7 +2,7 @@ class Api::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      render :show
+      render :show_partial
     else
       render json: @question.errors.full_messages, status: 422
     end

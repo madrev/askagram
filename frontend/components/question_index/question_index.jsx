@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import QuestionIndexItem from './question_index_item';
+import QuestionFormContainer from '../question_form/question_form_container';
 import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
@@ -39,6 +40,7 @@ class QuestionIndex extends React.Component {
     let questionKeys = Object.keys(this.props.questions);
 
     return <div className="question-index">
+      <QuestionFormContainer />
       <ul>
         { questionKeys.map((id, idx) =>
           <QuestionIndexItem key={idx}
@@ -59,6 +61,3 @@ class QuestionIndex extends React.Component {
 }
 
 export default QuestionIndex;
-
-
-// TODO: ADD TO ROUTE
