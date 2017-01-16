@@ -4,7 +4,11 @@ import { RECEIVE_ANSWER_LIKE, REMOVE_ANSWER_LIKE } from "../actions/like_actions
 import merge from 'lodash/merge';
 
 const _defaultState =  {
-  answers: []
+  answers: [],
+  title: "",
+  description: "",
+  timeAgo: "",
+  author: {}
 };
 
 const questionDetailReducer = (state = _defaultState, action) => {

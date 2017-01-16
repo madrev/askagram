@@ -38,6 +38,7 @@ class QuestionDetail extends React.Component {
     return <div className="question-detail">
       <h2>{this.props.title}</h2>
       <span>{this.props.description}</span>
+      <span>Asked by {this.props.author.username} {this.props.timeAgo} ago</span>
       <button onClick={this.openModal}>Add Answer</button>
       {  this.props.children }
       {  allAnswers.map((answer) => <AnswerDetail key={answer.id}

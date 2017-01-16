@@ -7,6 +7,8 @@ const mapStateToProps = ({ questionDetail, session }) => ({
   title: questionDetail.title,
   description: questionDetail.description,
   answers: questionDetail.answers,
+  author: questionDetail.author,
+  timeAgo: questionDetail.time_ago,
   currentUser: session.currentUser
 });
 
