@@ -12,7 +12,6 @@ class UploadForm extends React.Component{
       externalUrl: null
     };
 
-    this.currentUserId = this.props.currentUser.id;
     this.questionId = this.props.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

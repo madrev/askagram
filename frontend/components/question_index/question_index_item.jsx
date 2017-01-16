@@ -56,7 +56,7 @@ class QuestionIndexItem extends React.Component{
       <div className="answer-thumbnails">
         <div className="arrow-box">{ this.browseArrow("left") }</div>
         {this.allAnswers.slice(this.state.firstThumbnailIndex, 3).map(answer => (
-        <Link key= {answer.id} to={`/question/${this.question.id}`}>
+        <Link key={answer.id} to={`/questions/${this.question.id}`}>
           <img src= {thumbnailUrl(answer)}
                className="answer-thumbnail" />
         </Link>
