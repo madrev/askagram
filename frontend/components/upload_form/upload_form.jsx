@@ -9,7 +9,7 @@ class UploadForm extends React.Component{
     super(props);
     this.state = {
       selectedFile: null,
-      externalUrl: null
+      externalUrl: ""
     };
 
     this.questionId = this.props.questionId;

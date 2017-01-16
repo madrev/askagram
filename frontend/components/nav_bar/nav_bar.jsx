@@ -10,8 +10,7 @@ class NavBar extends React.Component {
   }
 
   logoutAndRedirect() {
-    this.props.logout();
-    this.props.router.push('/');
+    this.props.logout().then( ()=> this.props.router.push('/login'));
   }
 
   render() {
