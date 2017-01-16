@@ -1,6 +1,5 @@
 import { RECEIVE_QUESTION_DETAIL } from "../actions/question_actions.js";
-import { RECEIVE_NEW_ANSWER, REMOVE_ANSWER } from "../actions/answer_actions.js";
-import { RECEIVE_ANSWER_LIKE, REMOVE_ANSWER_LIKE } from "../actions/like_actions.js";
+import { RECEIVE_ANSWER, REMOVE_ANSWER } from "../actions/answer_actions.js";
 import merge from 'lodash/merge';
 
 const _defaultState =  {
@@ -16,14 +15,15 @@ const questionDetailReducer = (state = _defaultState, action) => {
   switch(action.type) {
     case RECEIVE_QUESTION_DETAIL:
       return action.questionDetail;
-    case RECEIVE_NEW_ANSWER:
-      return merge({}, state, {answers: [action.answer, ...state.answers]});
+    case RECEIVE_ANSWER:
+      const newAnswers = merge({}, state.answers, { [action.answer.id]: action.answer });
+      return merge({}, state, { answers: newAnswers } );
     case REMOVE_ANSWER:
-      return merge({}, state, { answers: state.answers.filter( answer => answer.id != action.answerId)});
-    case RECEIVE_ANSWER_LIKE:
-      return state;
-    case REMOVE_ANSWER_LIKE:
-      return state;
+      let filteredAnswers = {};
+      Object.keys(state.answers).forEach( id => {
+        if( id != action.answer.id ) filteredAnswers[id] = state.answers[id];
+      });
+      return merge({}, state, { answers: filteredAnswers });
     default:
       return state;
   }

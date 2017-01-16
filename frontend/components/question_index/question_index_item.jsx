@@ -15,7 +15,8 @@ class QuestionIndexItem extends React.Component{
       firstThumbnailIndex: 0
     };
     this.question = this.props.question;
-    this.allAnswers = this.props.question.answers;
+    this.answers = this.props.question.answers;
+    this.allAnswerKeys = Object.keys(this.props.question.answers || {} ).reverse();
     // this.scrollRight = this.scrollRight.bind(this);
   }
 
@@ -30,7 +31,7 @@ class QuestionIndexItem extends React.Component{
       hidden = false;
     }
     if(direction === "right" &&
-      this.allAnswers.length > this.state.firstThumbnailIndex + 3) {
+      this.allAnswerKeys.length > this.state.firstThumbnailIndex + 3) {
         hidden = false;
       }
     if(!hidden) return (
@@ -55,9 +56,9 @@ class QuestionIndexItem extends React.Component{
       </Link>
       <div className="answer-thumbnails">
         <div className="arrow-box">{ this.browseArrow("left") }</div>
-        {this.allAnswers.slice(this.state.firstThumbnailIndex, 3).map(answer => (
-        <Link key={answer.id} to={`/questions/${this.question.id}`}>
-          <img src= {thumbnailUrl(answer)}
+        {this.allAnswerKeys.slice(this.state.firstThumbnailIndex, 3).map(id => (
+        <Link key={id} to={`/questions/${this.question.id}`}>
+          <img src= {thumbnailUrl(this.answers[id])}
                className="answer-thumbnail" />
         </Link>
                                          )

@@ -34,7 +34,7 @@ class QuestionDetail extends React.Component {
   }
 
   render() {
-    const allAnswers = this.props.answers || [];
+    const allAnswers = Object.keys(this.props.answers).reverse().map( id => this.props.answers[id]) || [];
     return <div className="question-detail">
       <h2>{this.props.title}</h2>
       <span>{this.props.description}</span>

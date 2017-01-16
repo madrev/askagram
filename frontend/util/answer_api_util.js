@@ -23,6 +23,13 @@ export const createAnswer = (image_url, question_id) => (
   })
 );
 
+export const fetchAnswer = id => (
+  $.ajax({
+    method: "GET",
+    url: `api/answers/${id}`
+  })
+);
+
 export const deleteAnswer = id => (
   $.ajax({
     method: "DELETE",

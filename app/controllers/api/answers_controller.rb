@@ -10,6 +10,11 @@ class Api::AnswersController < ApplicationController
     end
   end
 
+  def show
+    @answer = Answer.find_by_id(params[:id])
+    render :show
+  end
+
   def destroy
     @answer = Answer.find_by_id(params[:id])
     if @answer

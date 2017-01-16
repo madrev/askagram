@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LikeDisplay from './like_display.jsx';
-import  { likeAnswer, unlikeAnswer } from '../../actions/like_actions.js';
+import  { likeAnswer, unlikeAnswer } from '../../actions/answer_actions.js';
 
 const mapStateToProps = ({ questionDetail, session }, ownProps) => ({
   currentUser: session.currentUser,

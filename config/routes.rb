@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    get 'likes/create'
-  end
-
-  namespace :api do
-    get 'likes/destroy'
-  end
-
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do
@@ -17,12 +9,10 @@ Rails.application.routes.draw do
       resources :answers, only: [:create]
     end
     #  TODO: clean this up after testing
-    resources :answers, only: [:destroy] do
+    resources :answers, only: [:show, :destroy] do
       post 'like', to: 'likes#create'
       delete 'like', to: 'likes#destroy'
-      # resources :likes, only: [:create]
     end
-    # resources :likes, only: [:destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

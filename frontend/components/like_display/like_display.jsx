@@ -12,7 +12,9 @@ class LikeDisplay extends React.Component {
     this.answerId = this.props.answerId;
     this.toggleLike = this.toggleLike.bind(this);
   }
-
+  componentWillReceiveProps() {
+    console.log("Receiving props");
+  }
   toggleLike(e) {
     e.preventDefault();
     if(this.state.likedByCurrentUser) this.unlikeAnswer();
@@ -20,10 +22,11 @@ class LikeDisplay extends React.Component {
   }
 
   likeAnswer() {
-    this.props.likeAnswer(this.props.answerId).then( () => {
-      this.setState({ likeCount: this.state.likeCount +1,
-                      likedByCurrentUser: true});
-    });
+    this.props.likeAnswer(this.props.answerId);
+    // .then( () => {
+    //   this.setState({ likeCount: this.state.likeCount +1,
+    //                   likedByCurrentUser: true});
+    // });
   }
 
   likeButtonClass() {
@@ -31,10 +34,11 @@ class LikeDisplay extends React.Component {
   }
 
   unlikeAnswer() {
-    this.props.unlikeAnswer(this.props.answerId).then( () => {
-      this.setState({ likeCount: this.state.likeCount -1,
-                      likedByCurrentUser: false});
-    });
+    this.props.unlikeAnswer(this.props.answerId);
+    // .then( () => {
+    //   this.setState({ likeCount: this.state.likeCount -1,
+    //                   likedByCurrentUser: false});
+    // });
   }
 
   likeText() {
@@ -47,8 +51,6 @@ class LikeDisplay extends React.Component {
         return `${this.state.likeCount} people like this.`;
     }
   }
-
-
 
   render() {
     let buttonText = (this.state.likedByCurrentUser ? "Unlike" : "Like");
