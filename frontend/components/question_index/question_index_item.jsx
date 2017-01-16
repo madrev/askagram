@@ -50,7 +50,7 @@ class QuestionIndexItem extends React.Component{
 
   render() {
       return <li className="question-index-item">
-      <Link to={`/question/${this.props.question.id}`}>
+      <Link to={`/questions/${this.props.question.id}`}>
         <h3>{this.question.title}</h3>
       </Link>
       <div className="answer-thumbnails">

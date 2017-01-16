@@ -16,7 +16,7 @@ class NavBar extends React.Component {
 
   render() {
     return <nav className="main-nav">
-      <h1 className="logo">askagram</h1>
+      <Link to="/"><h1 className="logo">askagram</h1></Link>
       <AuthDisplay currentUser={ this.props.currentUser } logout={ this.logoutAndRedirect } />
     </nav>;
   }

@@ -26,15 +26,15 @@ const Root = ({ store, cl }) => {
     <Provider store={ store }>
       <Router history = { hashHistory }>
         <Route path="/" component= { App }>
+          <IndexRoute component= { QuestionIndexContainer }/>
           <Route path="/login" component= { SessionFormContainer }
                                onEnter = { _redirectIfLoggedIn } />
           <Route path="/signup" component= { SessionFormContainer }
                                onEnter = { _redirectIfLoggedIn } />
-          <Route path="/questions" component= { QuestionIndexContainer }
                                    onEnter = { _redirectUnlessLoggedIn } />
-          <Route path="/question/:questionId" component= { QuestionDetailContainer }
+          <Route path="/questions/:questionId" component= { QuestionDetailContainer }
                                               onEnter = { _redirectUnlessLoggedIn } >
-            <Route path="/question/:questionId/upload" component= { UploadFormContainer } />
+          <Route path="/questions/:questionId/upload" component= { UploadFormContainer } />
           </Route>
         </Route>
       </Router>

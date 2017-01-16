@@ -40,7 +40,7 @@ class UploadForm extends React.Component{
 
   redirectToDetail() {
     this.props.closeModal();
-    if(this.props.fromIndex) this.props.router.push(`/question/${this.questionId}`);
+    if(this.props.fromIndex) this.props.router.push(`/questions/${this.questionId}`);
   }
 
 
