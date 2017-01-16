@@ -19,7 +19,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.includes(answers: :likes).find_by_id(params[:id])
+    @question = Question.includes(answers: :likers).find_by_id(params[:id] )
     if @question
       render :show
     else

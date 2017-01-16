@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeDisplayContainer from "../like_display/like_display_container";
 
 class AnswerDetail extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class AnswerDetail extends React.Component {
       <div className="answer-metadata">
         <span>{this.answer.poster.username}</span>
         <span>{this.answer.time_ago} ago</span>
+        <LikeDisplayContainer likers={this.answer.likers} answerId={this.answer.id}/>
         { this.deleteButton(this.answer.id) }
       </div>
       <img src={this.answer.image_url} />
