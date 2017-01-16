@@ -1,6 +1,7 @@
 class Api::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
     if @question.save
       render :show_partial
     else
@@ -37,6 +38,6 @@ class Api::QuestionsController < ApplicationController
 
   def question_params
     # TODO: grab user id from current user
-    params.require(:question).permit(:title, :description, :user_id)
+    params.require(:question).permit(:title, :description)
   end
 end

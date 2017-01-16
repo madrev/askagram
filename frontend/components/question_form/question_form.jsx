@@ -17,7 +17,6 @@ class QuestionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const question = Object.assign({}, this.state);
-    question["user_id"] = this.props.currentUser.id;
     this.props.createQuestion({ question }).then( () => this.clearState() );
   }
 

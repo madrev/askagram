@@ -34,8 +34,7 @@ class UploadForm extends React.Component{
     e.preventDefault();
     const fileContent = this.state.selectedFile || this.state.externalUrl;
     this.props.createAnswer(fileContent,
-                            this.questionId,
-                            this.currentUserId).then(() => this.redirectToDetail());
+                            this.questionId).then(() => this.redirectToDetail());
 
   }
 
@@ -63,7 +62,7 @@ class UploadForm extends React.Component{
             <div>
               <span>Selected File: {this.state.selectedFile ? this.state.selectedFile.name : ""}</span>
             </div>
-            <label>Or enter an external url: 
+            <label>Or enter an external url:
             <input type="text" onChange={ this.onUrlChange} value={this.state.externalUrl}></input>
             </label>
             <input type="submit" value="Upload Answer"></input>

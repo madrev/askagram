@@ -2,6 +2,7 @@ class Api::AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.question_id = params[:question_id]
+    @answer.user_id = current_user.id
     if @answer.save
       render :show
     else
@@ -24,6 +25,6 @@ class Api::AnswersController < ApplicationController
 
   def answer_params
     # TODO: grab user id from current user
-    params.require(:answer).permit(:user_id, :image_url)
+    params.require(:answer).permit(:image_url)
   end
 end

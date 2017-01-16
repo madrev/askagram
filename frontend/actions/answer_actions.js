@@ -15,10 +15,10 @@ export const removeAnswer = id => ({
 });
 
 
-export const createAnswer = (file, questionId, userId) => dispatch =>
+export const createAnswer = (file, questionId) => dispatch =>
 (
   APIUtil.sendToCloudinary(file).then(
-    res => APIUtil.createAnswer(res.url, questionId, userId ),
+    res => APIUtil.createAnswer(res.url, questionId),
     err => console.log(err.responseJSON) ).then(
     res2 => dispatch(receiveNewAnswer(res2), err => console.log(err.responseJSON)))
 );

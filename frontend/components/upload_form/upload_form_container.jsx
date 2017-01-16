@@ -5,12 +5,11 @@ import { createAnswer  } from "../../actions/answer_actions";
 
 
 const mapStateToProps = ({ session }, ownProps) => ({
-  currentUser: session.currentUser,
   questionId: ownProps.questionId
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createAnswer: (file, questionId, userId) => dispatch(createAnswer(file, questionId, userId)),
+  createAnswer: (file, questionId) => dispatch(createAnswer(file, questionId)),
   closeModal: ownProps.closeModal
 
   });

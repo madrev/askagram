@@ -15,11 +15,11 @@ export const sendToCloudinary = (file) => {
   });
 };
 
-export const createAnswer = (image_url, question_id, user_id) => (
+export const createAnswer = (image_url, question_id) => (
   $.ajax({
     method: "POST",
     url: `api/questions/${question_id}/answers`,
-    data: { "answer": {image_url, user_id}}
+    data: { "answer": {image_url}}
   })
 );
 
