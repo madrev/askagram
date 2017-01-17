@@ -11,18 +11,6 @@ class SearchBar extends React.Component {
     this.updateState = this.updateState.bind(this);
   }
 
-  // updateAndSearch(e) {
-  //   const updateState = new Promise( () => {
-  //     this.setState({ query: e.target.value});
-  //   });
-  //   console.log(updateState);
-  //   updateState.then( () => {
-  //     console.log(this.state.query);
-  //     this.props.searchQuestions(this.state.query);
-  //   } );
-  //
-  // }
-
   updateState(e) {
     this.setState( { query: e.target.value });
   }
@@ -34,16 +22,16 @@ class SearchBar extends React.Component {
     }
   }
 
-  render() {
-    console.log(this.props.searchResults);
 
+
+  render() {
     return <div className="search-container">
       <input type="text"
              placeholder="Search questions..."
              className = "search-field"
              value= { this.state.query }
              onChange= { this.updateState }></input>
-      <SearchResults searchResults={this.props.searchResults}/>
+      <SearchResults searchResults={this.props.searchResults }/>
 
 
     </div>;

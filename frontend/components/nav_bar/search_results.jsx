@@ -7,15 +7,22 @@ class SearchResults extends React.Component {
   }
 
   resultsList() {
+    const resultText = id => this.props.searchResults[id].result;
     return Object.keys(this.props.searchResults).map(
-      id => <li key={ id }><Link to={`/questions/${id}`}>{this.props.searchResults[id].result}</Link></li>
-  );
-
+      id => <li key={ id }>
+              <Link to={`/questions/${id}`}
+                    dangerouslySetInnerHTML={{__html: resultText(id)}}/>
+            </li>
+    );
   }
 
+  resultsClassName() {
+    return (Object.keys(this.props.searchResults).length === 0 ? "hidden" : "") ;
+  }
+
+
   render() {
-    console.log(this.resultsList());
-    return <div className="search-results">
+    return <div className={`search-results ${this.resultsClassName()}`}>
       <ul>
         {this.resultsList()}
       </ul>

@@ -1,0 +1,49 @@
+.search-container {
+  position: relative;
+  width: 35%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+
+  input {
+    border: none;
+
+    @include placeholder {
+      color: white;
+    }
+  }
+
+
+
+}
+
+.search-results {
+  position: absolute;
+  top: 45px;
+  display: block;
+  color: black;
+  background-color: $light-gray;
+  width: 130%;
+  padding: 10px;
+  border: 1px solid $dark-gray;
+  border-radius: 2px;
+
+  ul li {
+    padding: 5px;
+    width: 100%;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  ul li:hover {
+    background-color: $gray;
+  }
+
+
+}
+
+.hidden {
+  display: none;
+}

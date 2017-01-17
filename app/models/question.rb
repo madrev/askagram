@@ -6,5 +6,5 @@ class Question < ApplicationRecord
   include PgSearch
   pg_search_scope :search_for,
     against: %i(title description),
-    using: {tsearch: { highlight: true, prefix: true } }
+    using: {tsearch: { highlight: { start_sel: '<strong>', stop_sel: '</strong>'}, prefix: true } }
 end

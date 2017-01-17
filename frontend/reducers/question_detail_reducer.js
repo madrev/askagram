@@ -22,7 +22,6 @@ const questionDetailReducer = (state = _defaultState, action) => {
     case REMOVE_ANSWER:
       let filteredAnswers = {};
       Object.keys(state.answers).forEach( id => {
-        console.log( id != action.answerId );
         if( id != action.answerId ) filteredAnswers[id] = state.answers[id];
       });
       return extend({}, state, { answers: filteredAnswers });
