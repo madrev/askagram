@@ -21,16 +21,12 @@ class QuestionDetail extends React.Component {
     this.props.fetchQuestionDetail(this.props.params.questionId);
   }
 
- //  componentWillReceiveProps(newState, newProps) {
- //    if (this.props.location !== newProps.location) {
- //    this.props.fetchQuestionDetail(this.props.params.questionId);
- //   }
- // }
-
-  componentWillUpdate() {
-    if(this.props.params.questionId !== this.props.id) {
-      this.props.fetchQuestionDetail(this.props.params.questionId);
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.props.params.questionId !== nextProps.params.questionId) {
+      this.props.fetchQuestionDetail(nextProps.params.questionId);
+      return false;
     }
+    else return true;
   }
 
   ownAnswer(answer) {

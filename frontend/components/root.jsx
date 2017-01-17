@@ -19,6 +19,7 @@ const Root = ({ store, cl }) => {
   const _redirectUnlessLoggedIn = (nextState, replace) => {
     let currentUser = store.getState().session.currentUser;
     if(!currentUser) replace('/login');
+
   };
 
 
@@ -33,9 +34,7 @@ const Root = ({ store, cl }) => {
           <Route path="/signup" component= { SessionFormContainer }
                                onEnter = { _redirectIfLoggedIn } />
           <Route path="/questions/:questionId" component= { QuestionDetailContainer }
-                                              onEnter = { _redirectUnlessLoggedIn } >
-          <Route path="/questions/:questionId/upload" component= { UploadFormContainer } />
-          </Route>
+                                              onEnter = { _redirectUnlessLoggedIn } />
         </Route>
       </Router>
     </Provider>
