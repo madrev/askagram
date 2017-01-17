@@ -34,6 +34,12 @@ class Api::QuestionsController < ApplicationController
     render :index
   end
 
+  def search
+    @questions = Question.search_for(params[:query]).with_pg_search_highlight
+    render :search_results
+  end
+
+
   private
 
   def question_params

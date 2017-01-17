@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
     resources :questions, only: [:create, :show, :destroy, :index] do
+      get 'search', on: :collection
       resources :answers, only: [:create]
     end
     #  TODO: clean this up after testing
