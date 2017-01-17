@@ -12,8 +12,16 @@ class LikeDisplay extends React.Component {
     this.answerId = this.props.answerId;
     this.toggleLike = this.toggleLike.bind(this);
   }
-  componentWillReceiveProps() {
+  componentWillReceiveProps(newProps) {
+    console.log(this.answerId);
     console.log("Receiving props");
+    console.log(this.props.likers);
+    console.log(newProps.likers);
+    this.setState({
+      likeCount: newProps.likers.length,
+      likedByCurrentUser:
+        newProps.likers.map( liker => liker.id ).indexOf(this.props.currentUser.id) !== -1
+    });
   }
   toggleLike(e) {
     e.preventDefault();

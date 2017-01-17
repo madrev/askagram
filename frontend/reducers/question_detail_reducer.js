@@ -1,9 +1,10 @@
 import { RECEIVE_QUESTION_DETAIL } from "../actions/question_actions.js";
 import { RECEIVE_ANSWER, REMOVE_ANSWER } from "../actions/answer_actions.js";
 import merge from 'lodash/merge';
+import extend from 'lodash/extend';
 
 const _defaultState =  {
-  answers: [],
+  answers:  { },
   title: "",
   description: "",
   timeAgo: "",
@@ -16,14 +17,15 @@ const questionDetailReducer = (state = _defaultState, action) => {
     case RECEIVE_QUESTION_DETAIL:
       return action.questionDetail;
     case RECEIVE_ANSWER:
-      const newAnswers = merge({}, state.answers, { [action.answer.id]: action.answer });
-      return merge({}, state, { answers: newAnswers } );
+      const newAnswers = extend({}, state.answers, { [action.answer.id]: action.answer });
+      return extend({}, state, { answers: newAnswers } );
     case REMOVE_ANSWER:
       let filteredAnswers = {};
       Object.keys(state.answers).forEach( id => {
-        if( id != action.answer.id ) filteredAnswers[id] = state.answers[id];
+        console.log( id != action.answerId );
+        if( id != action.answerId ) filteredAnswers[id] = state.answers[id];
       });
-      return merge({}, state, { answers: filteredAnswers });
+      return extend({}, state, { answers: filteredAnswers });
     default:
       return state;
   }

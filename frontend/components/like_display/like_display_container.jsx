@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import LikeDisplay from './like_display.jsx';
 import  { likeAnswer, unlikeAnswer } from '../../actions/answer_actions.js';
+import { likersAsArray } from "../../reducers/selectors";
 
 const mapStateToProps = ({ questionDetail, session }, ownProps) => ({
   currentUser: session.currentUser,
-  likers: ownProps.likers,
+  likers: likersAsArray(questionDetail.answers[ownProps.answerId]),
   answerId: ownProps.answerId
 });
 
