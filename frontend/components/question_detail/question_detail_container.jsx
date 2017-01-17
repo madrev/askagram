@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import QuestionDetail from './question_detail.jsx';
 import  { fetchQuestionDetail } from '../../actions/question_actions.js';
 import  { deleteAnswer } from '../../actions/answer_actions.js';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = ({ questionDetail, session }) => ({
+  id: questionDetail.id,
   title: questionDetail.title,
   description: questionDetail.description,
   answers: questionDetail.answers,

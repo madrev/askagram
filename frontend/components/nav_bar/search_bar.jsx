@@ -23,6 +23,7 @@ class SearchBar extends React.Component {
     }
     if(this.props.location !== nextProps.location) {
       this.props.clearSearchResults();
+      this.setState({ query: "" });
     }
   }
 

@@ -63,7 +63,6 @@ class QuestionIndexItem extends React.Component{
         </Link>
                                          )
                                        )}
-      <div className="arrow-box">{ this.browseArrow("right") }</div>
      <button onClick={ this.props.openModal }>Add Answer</button>
       </div>
 

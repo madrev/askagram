@@ -3,6 +3,7 @@ import AnswerDetail from './answer_detail';
 import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
+import { withRouter } from 'react-router';
 
 
 
@@ -16,8 +17,20 @@ class QuestionDetail extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchQuestionDetail(this.props.params.questionId);
+  }
+
+ //  componentWillReceiveProps(newState, newProps) {
+ //    if (this.props.location !== newProps.location) {
+ //    this.props.fetchQuestionDetail(this.props.params.questionId);
+ //   }
+ // }
+
+  componentWillUpdate() {
+    if(this.props.params.questionId !== this.props.id) {
+      this.props.fetchQuestionDetail(this.props.params.questionId);
+    }
   }
 
   ownAnswer(answer) {
@@ -34,7 +47,7 @@ class QuestionDetail extends React.Component {
   }
 
   render() {
-    const allAnswers = Object.keys(this.props.answers).reverse().map( id => this.props.answers[id]) || [];
+    const allAnswers = Object.keys(this.props.answers || {}).reverse().map( id => this.props.answers[id]) || [];
     return <div className="question-detail">
       <h2>{this.props.title}</h2>
       <span>{this.props.description}</span>
@@ -56,4 +69,4 @@ class QuestionDetail extends React.Component {
   }
 }
 
- export default QuestionDetail;
+ export default withRouter(QuestionDetail);
