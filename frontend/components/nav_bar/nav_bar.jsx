@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import AuthDisplay from './auth_display';
+import SearchBarContainer from './search_bar_container';
 
 
 class NavBar extends React.Component {
@@ -16,6 +17,7 @@ class NavBar extends React.Component {
   render() {
     return <nav className="main-nav">
       <Link to="/"><h1 className="logo">askagram</h1></Link>
+      <SearchBarContainer />
       <AuthDisplay currentUser={ this.props.currentUser } logout={ this.logoutAndRedirect } />
     </nav>;
   }

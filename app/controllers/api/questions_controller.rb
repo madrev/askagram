@@ -43,7 +43,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    # TODO: grab user id from current user
     params.require(:question).permit(:title, :description)
   end
 end

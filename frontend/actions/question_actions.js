@@ -3,6 +3,7 @@ import * as APIUtil from "../util/question_api_util";
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const RECEIVE_QUESTION_DETAIL = "RECEIVE_QUESTION_DETAIL";
+export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 
 export const receiveQuestions = questions => ( {
   type: RECEIVE_QUESTIONS,
@@ -17,6 +18,11 @@ export const receiveQuestionDetail = questionDetail => ({
 export const receiveQuestion = question => ({
   type: RECEIVE_QUESTION,
   question
+});
+
+export const receiveSearchResults = results => ({
+  type: RECEIVE_SEARCH_RESULTS,
+  results
 });
 
 // TODO: figure out error display scheme for question fetching errors, if any
@@ -34,4 +40,9 @@ export const fetchQuestionDetail = id => dispatch => (
 export const createQuestion = question => dispatch => (
   APIUtil.createQuestion(question).then( res =>  dispatch(receiveQuestion(res)),
   err => console.log(err.responseJSON ) )
+);
+
+export const searchQuestions = query => dispatch => (
+  APIUtil.searchQuestions(query).then( res => dispatch(receiveSearchResults(res)),
+  err => console.log(err.responseJSON) )
 );
