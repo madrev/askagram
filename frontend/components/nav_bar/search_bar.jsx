@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResults from './search_results';
+import { withRouter } from 'react-router';
 
 class SearchBar extends React.Component {
 
@@ -19,6 +20,9 @@ class SearchBar extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     if( this.state.query !== nextState.query) {
       this.props.searchQuestions(nextState.query);
+    }
+    if(this.props.location !== nextProps.location) {
+      this.props.clearSearchResults();
     }
   }
 
@@ -44,4 +48,4 @@ class SearchBar extends React.Component {
 
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
