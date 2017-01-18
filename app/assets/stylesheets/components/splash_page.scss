@@ -1,4 +1,28 @@
 .splash-page {
-  background-image: url(http://res.cloudinary.com/askagram/image/upload/v1484777046/splash.jpg);
+  overflow: hidden;
+  // position:relative;
+  // background-image: url("http://res.cloudinary.com/askagram/image/upload/v1484777046/splash.jpg");
+  // background-size: cover;
 
+
+  img {
+    // max-height: 80vh;
+
+    position: relative;
+  }
+
+  h1 {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    font-size: 45px;
+    color: white;
+  }
+
+  .session-form {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    background-color: rgba(255,255,255, .85);
+  }
 }
