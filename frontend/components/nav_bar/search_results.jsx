@@ -9,8 +9,8 @@ class SearchResults extends React.Component {
   resultsList() {
     const resultText = id => this.props.searchResults[id].result;
     return Object.keys(this.props.searchResults).map(
-      id =>
-            <Link to={`/questions/${id}`} key={id}>
+      (id, idx) =>
+            <Link to={`/questions/${id}`} key={id} ref={idx}>
               <li dangerouslySetInnerHTML={{__html: resultText(id)}}/>
             </Link>
 
