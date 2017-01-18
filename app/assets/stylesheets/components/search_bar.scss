@@ -7,6 +7,7 @@
 
   input {
     border: none;
+    width: 100%;
 
     @include placeholder {
       color: white;

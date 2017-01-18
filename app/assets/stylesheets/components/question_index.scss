@@ -4,41 +4,64 @@
   align-items: center;
   margin-bottom: 30px;
 
-  .answer-thumbnails {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
 
-    img, button {
+}
+
+.carousel-container {
+  width: 80%;
+}
+.slick-slider
+{
+ display: flex;
+ flex-direction: row;
+}
+
+.slick-list
+{
+  overflow: hidden;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.slick-list.dragging
+{
+    cursor: pointer;
+}
+
+.slick-track
+{
+    height: 100%;
+    display: block;
+}
+
+
+
+.slick-slide
+{
+    float: left;
+    min-height: 1px;
+    // margin: px;
+
+    a {
       display: block;
-      margin: 20px;
-      width: 250px;
       height: 250px;
+      width: 250px;
     }
 
-    .arrow-box {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100px;
-
-      span {
-        color: $gray;
-      }
-
-    }
-
-    img:hover, span:hover {
+    a:hover, span:hover {
       opacity: 0.75;
     }
+}
 
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+  pointer-events: none;
+}
 
-    button {
-      border-radius: 0px;
-    }
-
-
-  }
-
-
+.slick-disabled {
+  visibility: hidden;
 }
