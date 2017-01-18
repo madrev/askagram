@@ -7,7 +7,7 @@ import { signup, login, demoLogin, clearErrors } from "../../actions/session_act
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: Boolean(state.session.currentUser),
   errors: state.session.errors,
-  formType: ownProps.location.pathname.slice(1)
+  formType: (ownProps.location ? ownProps.location.pathname.slice(1) : 'signup')
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

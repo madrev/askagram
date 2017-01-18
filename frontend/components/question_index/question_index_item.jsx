@@ -12,8 +12,6 @@ class QuestionIndexItem extends React.Component{
   }
 
   render() {
-    console.log(this.question.title);
-    console.log(this.answers);
       return <li className="question-index-item">
       <Link to={`/questions/${this.props.question.id}`}>
         <h3>{this.props.question.title}</h3>
