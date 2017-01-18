@@ -9,18 +9,17 @@ class QuestionIndexItem extends React.Component{
 
   constructor(props){
     super(props);
-    this.question = this.props.question;
-    this.answers = this.props.question.answers;
   }
 
-
   render() {
+    console.log(this.question.title);
+    console.log(this.answers);
       return <li className="question-index-item">
       <Link to={`/questions/${this.props.question.id}`}>
-        <h3>{this.question.title}</h3>
+        <h3>{this.props.question.title}</h3>
       </Link>
-      <AnswerCarousel answers={answersAsArray(this.answers)}
-                      questionId={this.question.id}/>
+      <AnswerCarousel answers={answersAsArray(this.props.question.answers)}
+                      questionId={this.props.question.id}/>
      <button onClick={ this.props.openModal }>Add Answer</button>
     </li>;
   }
