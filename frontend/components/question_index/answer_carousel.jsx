@@ -33,7 +33,7 @@ class AnswerCarousel extends React.Component {
 
   renderSlides() {
     return this.props.answers.map( answer =>
-    <div>
+    <div key={answer.id}>
       <div>
       <Link key={answer.id} to={`/questions/${this.props.questionId}`}>
         <img src= {this.thumbnailUrl(answer)}

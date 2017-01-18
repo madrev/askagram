@@ -5,6 +5,7 @@ import QuestionFormContainer from '../question_form/question_form_container';
 import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
+import UnansweredIndex from './unanswered_index';
 import { answeredQuestions, unansweredQuestions } from "../../reducers/selectors";
 
 class QuestionIndex extends React.Component {
@@ -35,13 +36,14 @@ class QuestionIndex extends React.Component {
   }
 
 
-
-
   render() {
-    // let questionKeys = Object.keys(this.props.questions);
 
     return <div className="question-index">
-      <QuestionFormContainer />
+      <div className="question-utils">
+        <QuestionFormContainer />
+        <UnansweredIndex questions={unansweredQuestions(this.props.questions)}
+                         openModal={this.openModal} />
+      </div>
       <ul>
         { answeredQuestions(this.props.questions).map((question, idx) =>
           <QuestionIndexItem key={idx}
