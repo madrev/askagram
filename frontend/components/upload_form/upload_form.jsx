@@ -12,6 +12,7 @@ class UploadForm extends React.Component{
       externalUrl: ""
     };
 
+
     this.questionId = this.props.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,6 +49,9 @@ class UploadForm extends React.Component{
       <div className="upload-form-container">
 
         <form onSubmit={this.handleSubmit}>
+          <h5>Add an answer to...</h5>
+          <h3>{this.props.title}</h3>
+          <h5>{this.props.description}</h5>
             <div className="FileUpload">
               <Dropzone
                 className="dropzone"

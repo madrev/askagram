@@ -5,7 +5,9 @@ import { createAnswer  } from "../../actions/answer_actions";
 
 
 const mapStateToProps = ({ session }, ownProps) => ({
-  questionId: ownProps.questionId
+  questionId: ownProps.question.id,
+  title: ownProps.question.title,
+  description: ownProps.question.description
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

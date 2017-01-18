@@ -13,7 +13,7 @@ class QuestionIndex extends React.Component {
     super(props);
     this.state = {
       modalOpen: false,
-      modalQuestionId: null
+      modalQuestion: null
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -23,11 +23,11 @@ class QuestionIndex extends React.Component {
     this.props.fetchQuestions();
   }
 
-  openModal(questionId) {
+  openModal(question) {
     return (e) => {
       e.preventDefault();
       this.setState({ modalOpen: true,
-                      modalQuestionId: questionId });
+                      modalQuestion: question });
     };
   }
 
@@ -48,13 +48,13 @@ class QuestionIndex extends React.Component {
         { answeredQuestions(this.props.questions).map((question, idx) =>
           <QuestionIndexItem key={idx}
                              question={question}
-                             openModal={this.openModal(question.id)}/>) }
+                             openModal={this.openModal(question)}/>) }
       </ul>
       <Modal isOpen={this.state.modalOpen}
              onRequestClose={this.closeModal}
              style={modalStyle}
              contentLabel="Answer Upload Form">
-        <UploadFormContainer questionId={this.state.modalQuestionId}
+        <UploadFormContainer question={this.state.modalQuestion}
                              closeModal={this.closeModal}
                              fromIndex={true}/>
       </Modal>

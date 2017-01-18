@@ -58,7 +58,7 @@ class QuestionDetail extends React.Component {
              onRequestClose={this.closeModal}
              style={modalStyle}
              contentLabel="Answer Upload Form">
-        <UploadFormContainer questionId={this.props.params.questionId}
+        <UploadFormContainer question={this.props.questionDetail}
                              closeModal={this.closeModal}/>
       </Modal>
     </div>;

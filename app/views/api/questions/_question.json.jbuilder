@@ -1,4 +1,4 @@
-json.extract! question, :title, :id
+json.extract! question, :title, :id, :description
 json.set! :answers do
   question.answers.each do |answer|
     json.set! answer.id do

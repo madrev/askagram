@@ -5,6 +5,7 @@ import  { deleteAnswer } from '../../actions/answer_actions.js';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = ({ questionDetail, session }) => ({
+  questionDetail: questionDetail,
   id: questionDetail.id,
   title: questionDetail.title,
   description: questionDetail.description,

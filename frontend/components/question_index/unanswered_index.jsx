@@ -8,7 +8,7 @@ const UnansweredIndex = ({questions, openModal}) => (
     <ul>
       { questions.map( question =>
           <li key={question.id}>
-            <a onClick={openModal(question.id)}>{question.title}</a>
+            <a onClick={openModal(question)}>{question.title}</a>
           </li>
       )}
     </ul>
