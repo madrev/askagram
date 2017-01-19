@@ -38,7 +38,7 @@ class QuestionForm extends React.Component {
 
 
   render(){
-    return <form className="session-form" onSubmit={ this.handleSubmit }>
+    return <form className="question-form" onSubmit={ this.handleSubmit }>
       <h2>Ask a Question...</h2>
       <input type="text"
              placeholder="Title"

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -46,6 +46,14 @@ class SessionForm extends React.Component {
   </ul>;
   }
 
+  linkAway() {
+    if(this.props.formType === 'signup') {
+      return <Link to="/login">Been here before?  Log in.</Link>;
+    } else {
+      return <Link to="/signup">New here? Sign up.</Link>;
+    }
+  }
+
   redirect() {
     if(this.props.loggedIn) this.props.router.push("/questions");
   }
@@ -53,6 +61,7 @@ class SessionForm extends React.Component {
   render(){
     return <form className="session-form" onSubmit={ this.handleSubmit }>
       <h2>{this.props.formType === 'signup' ? 'Sign Up' : 'Log In'}</h2>
+      {this.linkAway()}
       {this.props.errors ? this.errorList() : ""}
       <input type="text"
              placeholder="Username"

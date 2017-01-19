@@ -1,4 +1,4 @@
-.session-form {
+.question-form {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -8,10 +8,8 @@
   border-radius: 5px;
 
 
-  h2 {
-    margin-bottom: 10px;
-  }
-  a, input, ul {
+
+  h2, input, ul {
     margin-bottom: 40px;
   }
 
