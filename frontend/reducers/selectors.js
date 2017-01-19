@@ -17,5 +17,5 @@ export const answeredQuestions = questions => {
 };
 
 export const unansweredQuestions = questions => {
-  return questionsAsArray(questions).filter( question => !question.answers);
+  return questionsAsArray(questions).reverse().filter( question => !question.answers);
 };

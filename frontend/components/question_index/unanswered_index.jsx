@@ -6,7 +6,7 @@ const UnansweredIndex = ({questions, openModal}) => (
     <h2>New Questions</h2>
     <h3>Be first to answer</h3>
     <ul>
-      { questions.map( question =>
+      { questions.slice(0,6).map( question =>
           <li key={question.id}>
             <a onClick={openModal(question)}>{question.title}</a>
           </li>
