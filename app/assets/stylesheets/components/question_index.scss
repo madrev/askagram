@@ -2,6 +2,9 @@
 .question-utils {
   display: flex;
   flex-direction: row;
+  max-width: 1100px;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 
 .question-index-item {
@@ -14,6 +17,7 @@
 
 .carousel-container {
   width: 80%;
+  max-width: 1100px;
 
   .slick-slider
   {
@@ -60,6 +64,10 @@
 
     .slick-disabled {
       visibility: hidden;
+    }
+
+    .slick-arrow {
+      background-color: $gray;
     }
   }
 

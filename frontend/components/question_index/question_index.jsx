@@ -6,7 +6,6 @@ import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
 import UnansweredIndex from './unanswered_index';
-// import { answeredQuestions, unansweredQuestions } from "../../reducers/selectors";
 
 class QuestionIndex extends React.Component {
   constructor(props) {
