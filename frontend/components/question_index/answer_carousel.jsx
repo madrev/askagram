@@ -14,7 +14,9 @@ class AnswerCarousel extends React.Component {
       speed: 500,
       arrows: true,
       slidesToShow: 3,
-      slidesToScroll: 3
+      slidesToScroll: 3,
+      nextArrow: this.browseArrow("right"),
+      prevArrow: this.browseArrow("left")
     };
 
   }
@@ -27,8 +29,12 @@ class AnswerCarousel extends React.Component {
 
   browseArrow(direction) {
     return (
-      <FontAwesome name={`angle-${direction}`}
-                   size="4x" /> );
+      <button>
+        <FontAwesome name={`angle-${direction}`}
+                     size="5x" />
+      </button>
+    );
+
   }
 
   renderSlides() {

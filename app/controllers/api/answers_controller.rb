@@ -28,8 +28,7 @@ class Api::AnswersController < ApplicationController
 
   private
 
-  def answer_params
-    # TODO: grab user id from current user
+  def answer_param
     params.require(:answer).permit(:image_url)
   end
 end

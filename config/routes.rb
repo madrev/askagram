@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       get 'search', on: :collection
       resources :answers, only: [:create]
     end
-    #  TODO: clean this up after testing
     resources :answers, only: [:show, :destroy] do
       post 'like', to: 'likes#create'
       delete 'like', to: 'likes#destroy'

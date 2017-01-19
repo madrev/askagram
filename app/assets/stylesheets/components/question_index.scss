@@ -17,7 +17,8 @@
 
 .carousel-container {
   width: 80%;
-  max-width: 1100px;
+  max-width: 1200px;
+  margin-bottom: 20px;
 
   .slick-slider
   {
@@ -40,7 +41,6 @@
     {
       float: left;
       min-height: 1px;
-      // margin: px;
 
       a {
         display: block;
@@ -67,7 +67,28 @@
     }
 
     .slick-arrow {
-      background-color: $gray;
+      background-color: rgba( 0,0,0,0);
+      box-shadow: none;
+
+      span {
+        color: $gray;
+
+      }
+    }
+
+    .slick-prev {
+      padding-right: 30px;
+    }
+
+    .slick-next {
+      padding-left: 30px;
+    }
+
+    .slick-arrow:hover {
+      -webkit-transform: scale(1.10);
+      -ms-transform: scale(1.10);
+      transform: scale(1.10);
+
     }
   }
 

@@ -42,13 +42,19 @@
 
         .like-button {
           margin-right: 10px;
+          text-shadow: 2px 2px 2px rgba(0,0,0,.75);
         }
 
 
         .like-button:hover {
           opacity: .75;
+        }
+
+        .like-button:active {
+        text-shadow: 1px 1px 1px rgba(0,0,0,.75);
 
         }
+
         .liked {
           color: red;
         }
