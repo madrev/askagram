@@ -8,18 +8,35 @@
   background-color: $darkest-purple;
   color: white;
   padding: 20px 30px;
+  box-shadow: 0 8px 6px -6px rgba(0,0,0, .5);
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .auth-display {
   display: block;
 
-  * {
+  .welcome-message {
     display: block;
-    padding: 10px 20px;;
+    padding: 10px 20px;
     float: left;
+
+    button {
+      margin-left: 15px;
+      width: auto;
+      padding: 5px 15px;
+    }
   }
 }
 
 .logo {
   font-family: "Arima Madurai";
+}
+
+.logo:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }

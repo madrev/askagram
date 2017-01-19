@@ -45,10 +45,12 @@ class QuestionDetail extends React.Component {
   render() {
     const allAnswers = Object.keys(this.props.answers || {}).reverse().map( id => this.props.answers[id]) || [];
     return <div className="question-detail">
-      <h2>{this.props.title}</h2>
-      <span>{this.props.description}</span>
-      <span>Asked by {this.props.author.username} {this.props.timeAgo} ago</span>
-      <button onClick={this.openModal}>Add Answer</button>
+      <div className="question-metadata">
+        <h2>{this.props.title}</h2>
+        { this.props.description ? <span>{this.props.description}</span> : "" }
+        <span>Asked by {this.props.author.username} {this.props.timeAgo} ago</span>
+        <button onClick={this.openModal}>Add Answer</button>
+      </div>
       {  this.props.children }
       {  allAnswers.map((answer) => <AnswerDetail key={answer.id}
                                                         answer={answer}

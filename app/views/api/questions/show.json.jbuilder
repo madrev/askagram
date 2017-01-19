@@ -1,4 +1,4 @@
-json.extract! @question, :title, :description
+json.extract! @question, :id, :title, :description
 json.set! :time_ago, time_ago_in_words(@question.created_at)
 json.set! :author do
   json.extract! @question.author, :id, :username

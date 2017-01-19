@@ -17,7 +17,8 @@ class AnswerDetail extends React.Component {
   }
 
   deleteButton(id) {
-    if(this.props.ownAnswer) return <button onClick={this.handleDelete(id)}>Delete</button>;
+    if(this.props.ownAnswer) return <button onClick={this.handleDelete(id)}
+                                            className="delete-button">Delete</button>;
   }
 
   render() {
@@ -28,7 +29,9 @@ class AnswerDetail extends React.Component {
         <LikeDisplayContainer answerId={this.answer.id}/>
         { this.deleteButton(this.answer.id) }
       </div>
-      <img src={this.answer.image_url} />
+      <div className="photo-box">
+        <img src={this.answer.image_url} />
+      </div>
     </li>;
   }
 

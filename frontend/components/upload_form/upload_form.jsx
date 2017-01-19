@@ -13,7 +13,6 @@ class UploadForm extends React.Component{
     };
 
 
-    this.questionId = this.props.questionId;
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onUrlChange = this.onUrlChange.bind(this);
@@ -34,13 +33,13 @@ class UploadForm extends React.Component{
     e.preventDefault();
     const fileContent = this.state.selectedFile || this.state.externalUrl;
     this.props.createAnswer(fileContent,
-                            this.questionId).then(() => this.redirectToDetail());
+                            this.props.questionId).then(() => this.redirectToDetail());
 
   }
 
   redirectToDetail() {
     this.props.closeModal();
-    if(this.props.fromIndex) this.props.router.push(`/questions/${this.questionId}`);
+    if(this.props.fromIndex) this.props.router.push(`/questions/${this.props.questionId}`);
   }
 
 

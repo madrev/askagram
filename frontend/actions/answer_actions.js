@@ -26,7 +26,7 @@ export const createAnswer = (file, questionId) => dispatch =>
 
 
 // TODO: delete from cloudinary as well!
-export const deleteAnswer = (id) => dispatch => (
+export const deleteAnswer = id => dispatch => (
   AnswerAPIUtil.deleteAnswer(id).then(
     res => dispatch(removeAnswer(res.id), err => console.log(err.responseJSON)))
 );

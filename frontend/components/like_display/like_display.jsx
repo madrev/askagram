@@ -23,7 +23,7 @@ class LikeDisplay extends React.Component {
   }
 
   likeButtonClass() {
-    return (this.likedByCurrentUser() ? "liked" : "");
+    return (this.likedByCurrentUser() ? "like-button liked" : "like-button");
   }
 
   unlikeAnswer() {
