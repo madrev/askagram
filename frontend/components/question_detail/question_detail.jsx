@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
 import { withRouter } from 'react-router';
+import { answersAsArray } from '../../reducers/selectors'
 
 
 
@@ -43,8 +44,22 @@ class QuestionDetail extends React.Component {
     this.props.clearErrors();
   }
 
+  renderAnswerDetails() {
+    const allAnswers = answersAsArray(this.props.answers)
+    if(allAnswers.length !== 0 )  {
+      return (allAnswers.map((answer) => <AnswerDetail key={answer.id}
+                                               answer={answer}
+                                               ownAnswer={this.ownAnswer(answer)}
+                                               deleteAnswer={this.props.deleteAnswer} />));
+    } else {
+      return <div className="no-answers-message">
+        <h4>There's nothing here.</h4>
+        <span>Be the first to answer this question!</span>
+      </div>;
+    }
+  }
+
   render() {
-    const allAnswers = Object.keys(this.props.answers || {}).reverse().map( id => this.props.answers[id]) || [];
     return <div className="question-detail">
       <div className="question-metadata">
         <h2>{this.props.title}</h2>
@@ -53,10 +68,8 @@ class QuestionDetail extends React.Component {
         <button onClick={this.openModal}>Add Answer</button>
       </div>
       {  this.props.children }
-      {  allAnswers.map((answer) => <AnswerDetail key={answer.id}
-                                                        answer={answer}
-                                                        ownAnswer={this.ownAnswer(answer)}
-                                                        deleteAnswer={this.props.deleteAnswer} />) }
+      { this.renderAnswerDetails() }
+
       <Modal isOpen={this.state.modalOpen}
              onRequestClose={this.closeModal}
              style={modalStyle}

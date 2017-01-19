@@ -17,6 +17,20 @@
 
     }
 
+    .no-answers-message {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      align-items: center;
+      margin-top: 20px;
+
+      h4 {
+        font-weight: bold;
+      }
+    }
+
+
+
     .answer-detail {
       width: 100%;
       margin: 20px auto;
