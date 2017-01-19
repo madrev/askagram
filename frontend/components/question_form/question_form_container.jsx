@@ -4,7 +4,8 @@ import { createQuestion  } from "../../actions/question_actions";
 
 
 
-const mapStateToProps = ({ session }, ownProps) => ({
+const mapStateToProps = ({ errors }, ownProps) => ({
+  questionFormErrors: errors.questionFormErrors
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

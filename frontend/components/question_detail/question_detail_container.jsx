@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import QuestionDetail from './question_detail.jsx';
-import  { fetchQuestionDetail } from '../../actions/question_actions.js';
+import  { fetchQuestionDetail, clearErrors } from '../../actions/question_actions.js';
 import  { deleteAnswer } from '../../actions/answer_actions.js';
 import { withRouter } from 'react-router';
 
@@ -17,7 +17,8 @@ const mapStateToProps = ({ questionDetail, session }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchQuestionDetail: (id) => dispatch(fetchQuestionDetail(id)),
-  deleteAnswer: (id) => dispatch(deleteAnswer(id))
+  deleteAnswer: (id) => dispatch(deleteAnswer(id)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetail);

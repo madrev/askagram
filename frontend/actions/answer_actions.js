@@ -3,6 +3,7 @@ import * as LikeAPIUtil from "../util/like_api_util";
 
 export const RECEIVE_ANSWER = "RECEIVE_ANSWER";
 export const REMOVE_ANSWER = "REMOVE_ANSWER";
+export const RECEIVE_UPLOAD_ERRORS = "RECEIVE_UPLOAD_ERRORS";
 
 
 export const receiveAnswer = answer => ({
@@ -15,15 +16,30 @@ export const removeAnswer = id => ({
   answerId: id
 });
 
+export const receiveUploadErrors = errors => ({
+  type: RECEIVE_UPLOAD_ERRORS,
+  errors
+});
+
+const _uploadErrorMsg = "An upload error occurred. Please check your file and try again.";
+
+
 
 export const createAnswer = (file, questionId) => dispatch =>
 (
   AnswerAPIUtil.sendToCloudinary(file).then(
     res => AnswerAPIUtil.createAnswer(res.url, questionId),
-    err => console.log(err.responseJSON) ).then(
-    res2 => dispatch(receiveAnswer(res2), err => console.log(err.responseJSON)))
+    err => dispatch(receiveUploadErrors([_uploadErrorMsg]))).then(
+    res2 => dispatch(receiveAnswer(res2), err2 => dispatch(receiveUploadErrors(err2.responseJSON))))
 );
 
+// export const createAnswer = (file, questionId) => dispatch =>
+// (
+//   AnswerAPIUtil.sendToCloudinary(file).then(
+//     res => AnswerAPIUtil.createAnswer(res.url, questionId)).then(
+//     res2 => dispatch(receiveAnswer(res2)).catch(
+//     err => dispatch(receiveUploadErrors(err.responseJSON))))
+// );
 
 // TODO: delete from cloudinary as well!
 export const deleteAnswer = id => dispatch => (
