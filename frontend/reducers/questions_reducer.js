@@ -1,7 +1,10 @@
 import { RECEIVE_QUESTIONS, RECEIVE_QUESTION } from "../actions/question_actions.js";
 import merge from 'lodash/merge';
 
-const _defaultState =  {};
+const _defaultState =  {
+  questions: {},
+  sortOrder: []
+};
 
 const questionReducer = (state = _defaultState, action) => {
   Object.freeze(state);
@@ -9,7 +12,7 @@ const questionReducer = (state = _defaultState, action) => {
     case RECEIVE_QUESTIONS:
       return action.questions;
     case RECEIVE_QUESTION:
-      return merge({}, state, { [action.question.id]: action.question });
+      return merge({}, state, { questions: { [action.question.id]: action.question}  });
     default:
       return state;
   }

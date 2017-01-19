@@ -29,8 +29,9 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    # TODO: sort/limit by some criteria
+    @sort_array = Answer.order(updated_at: :desc).map { |answer| answer.question_id }.uniq
     @questions = Question.includes(:answers).all
+
     render :index
   end
 

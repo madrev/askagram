@@ -8,12 +8,12 @@ export const answersAsArray = answers => (
 );
 
 export const questionsAsArray = questions => (
-   Object.keys(questions || {} ).reverse().map( id =>
-  questions[id] )
+   Object.keys(questions.questions || {} ).map( id =>
+  questions.questions[id] )
 );
 
 export const answeredQuestions = questions => {
-  return questionsAsArray(questions).filter( question => Boolean(question.answers));
+  return questions.sortOrder.map( id => questions.questions[id]);
 };
 
 export const unansweredQuestions = questions => {
