@@ -11,7 +11,13 @@ class QuestionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-//  TODO: handle errors on this form
+  errorList() {
+  const errors = this.props.questionFormErrors;
+  if(errors.length !== 0) return <ul>
+    { errors.map( (err, idx) =>  <li key={idx}>{err}</li>) }
+  </ul>;
+  else return "";
+  }
 
 
   handleSubmit(e) {
@@ -42,6 +48,7 @@ class QuestionForm extends React.Component {
        placeholder="Description"
        onChange={this.handleChange("description")}
        value= {this.state.description}></input>
+     { this.errorList() }
      <input type="submit" value="Submit"></input>
 
     </form>;

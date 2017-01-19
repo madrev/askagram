@@ -29,6 +29,14 @@ class UploadForm extends React.Component{
     this.setState({ externalUrl: e.target.value});
   }
 
+  errorList() {
+  const errors = this.props.uploadFormErrors;
+  if(errors.length !== 0) return <ul>
+    { errors.map( (err, idx) =>  <li key={idx}>{err}</li>) }
+  </ul>;
+  else return "";
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const fileContent = this.state.selectedFile || this.state.externalUrl;
@@ -67,6 +75,8 @@ class UploadForm extends React.Component{
             <label>Or enter an external url:
             <input type="text" onChange={ this.onUrlChange} value={this.state.externalUrl}></input>
             </label>
+            { this.errorList()}
+
             <input type="submit" value="Upload Answer"></input>
 
         </form>

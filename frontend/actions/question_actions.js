@@ -55,7 +55,8 @@ export const fetchQuestionDetail = id => dispatch => (
 
 export const createQuestion = question => dispatch => (
   APIUtil.createQuestion(question).then( res =>  dispatch(receiveQuestion(res)),
-  err => dispatch(receiveQuestionErrors(err.responseJSON)) )
+  err => dispatch(receiveQuestionErrors(err.responseJSON))).then(
+    () => dispatch(clearErrors()))
 );
 
 export const searchQuestions = query => dispatch => (

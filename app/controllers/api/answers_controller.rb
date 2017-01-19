@@ -28,7 +28,7 @@ class Api::AnswersController < ApplicationController
 
   private
 
-  def answer_param
+  def answer_params
     params.require(:answer).permit(:image_url)
   end
 end
