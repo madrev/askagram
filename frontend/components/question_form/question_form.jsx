@@ -45,7 +45,7 @@ class QuestionForm extends React.Component {
              onChange={this.handleChange("title")}
              value= {this.state.title}></input>
      <input type="text"
-       placeholder="Description"
+       placeholder="Description (optional)"
        onChange={this.handleChange("description")}
        value= {this.state.description}></input>
      { this.errorList() }

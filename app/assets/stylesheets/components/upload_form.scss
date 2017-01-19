@@ -8,6 +8,10 @@
     flex-direction: column;
     justify-content: center;
 
+    h3 {
+      text-align: center;
+    }
+
     .dropzone {
       border-width: 2px;
       border-color: $dark-gray;
