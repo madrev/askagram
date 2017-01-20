@@ -32,6 +32,18 @@ The question detail view displays all of the answers to a question, a like butto
 ### Answer submission
 Answer submission is done using a custom-built upload widget that sends photos -- uploaded from a computer or from an external URL -- via the [Cloudinary][cloudinary] API for storage and retrieval. A subsequent call to the Askagram API saves the answer record to the database.
 
+``` javascript
+export const createAnswer = (file, questionId) => dispatch =>
+(
+  AnswerAPIUtil.sendToCloudinary(file).then(
+    cloudResponse => AnswerAPIUtil.createAnswer(cloudResponse.url, questionId),
+    cloudErr => dispatch(receiveUploadErrors([_uploadErrorMsg]))).then(
+    response => dispatch(receiveAnswer(response),
+    err => dispatch(receiveUploadErrors(err.responseJSON))))
+);
+```
+
+
 [cloudinary]:www.cloudinary.com
 ![answer upload](https://github.com/madrev/askagram/blob/master/docs/screenshots/answer_upload.png)
 
