@@ -1,15 +1,8 @@
 .splash-page {
   overflow: hidden;
-  height: 100vh;
-  // position:relative;
-  // background-image: url("http://res.cloudinary.com/askagram/image/upload/v1484777046/splash.jpg");
-  // background-size: cover;
-
-
-  img {
-   height: 100%;
-   position: relative;
-  }
+  height: 90vh;
+  background-image: url("http://res.cloudinary.com/askagram/image/upload/v1484777046/splash.jpg");
+  background-size: cover;
 
   h1 {
     position: absolute;
