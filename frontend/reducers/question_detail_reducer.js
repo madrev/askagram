@@ -1,10 +1,10 @@
-import { RECEIVE_QUESTION_DETAIL } from "../actions/question_actions.js";
+import { RECEIVE_QUESTION_DETAIL, CLEAR_QUESTION_DETAIL } from "../actions/question_actions.js";
 import { RECEIVE_ANSWER, REMOVE_ANSWER } from "../actions/answer_actions.js";
 import merge from 'lodash/merge';
 import extend from 'lodash/extend';
 
 const _defaultState =  {
-  answers:  { },
+  answers:  {},
   title: "",
   description: "",
   timeAgo: "",
@@ -25,6 +25,8 @@ const questionDetailReducer = (state = _defaultState, action) => {
         if( id != action.answerId ) filteredAnswers[id] = state.answers[id];
       });
       return extend({}, state, { answers: filteredAnswers });
+    case CLEAR_QUESTION_DETAIL:
+      return _defaultState;
     default:
       return state;
   }

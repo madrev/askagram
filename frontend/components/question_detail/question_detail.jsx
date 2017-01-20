@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import modalStyle from '../styles/modal_style';
 import UploadFormContainer from '../upload_form/upload_form_container';
 import { withRouter } from 'react-router';
-import { answersAsArray } from '../../reducers/selectors'
+import { answersAsArray } from '../../reducers/selectors';
 
 
 
@@ -30,6 +30,8 @@ class QuestionDetail extends React.Component {
     else return true;
   }
 
+
+
   ownAnswer(answer) {
     return answer.poster.id === this.props.currentUser.id;
   }
@@ -51,11 +53,13 @@ class QuestionDetail extends React.Component {
                                                answer={answer}
                                                ownAnswer={this.ownAnswer(answer)}
                                                deleteAnswer={this.props.deleteAnswer} />));
-    } else {
+    } else if (this.props.title !== "") {
       return <div className="no-answers-message">
         <h4>There's nothing here.</h4>
         <span>Be the first to answer this question!</span>
       </div>;
+    } else {
+      return "";
     }
   }
 
@@ -79,6 +83,11 @@ class QuestionDetail extends React.Component {
       </Modal>
     </div>;
   }
+
+  componentWillUnmount() {
+    this.props.clearQuestionDetail();
+  }
 }
+
 
  export default withRouter(QuestionDetail);

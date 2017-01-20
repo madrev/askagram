@@ -5,6 +5,7 @@ export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const RECEIVE_QUESTION_DETAIL = "RECEIVE_QUESTION_DETAIL";
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS";
+export const CLEAR_QUESTION_DETAIL = "CLEAR_QUESTION_DETAIL";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_QUESTION_ERRORS = "RECEIVE_QUESTION_ERRORS";
 
@@ -32,6 +33,10 @@ export const clearSearchResults = results => ({
   type: CLEAR_SEARCH_RESULTS
 });
 
+export const clearQuestionDetail = () => ({
+  type: CLEAR_QUESTION_DETAIL
+});
+
 export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
@@ -40,6 +45,7 @@ export const receiveQuestionErrors = errors => ({
   type: RECEIVE_QUESTION_ERRORS,
   errors
 });
+
 
 // TODO: figure out error display scheme for question fetching errors, if any
 
