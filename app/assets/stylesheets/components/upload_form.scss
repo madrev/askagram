@@ -19,7 +19,19 @@
       padding: 20px 40px;
     }
     * {
-      margin: 7px auto;
+      margin: 5px auto;
+    }
+
+    label {
+      margin-top: 30px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+    }
+
+    input[type="submit"] {
+      margin: 25px auto;
     }
   }
 

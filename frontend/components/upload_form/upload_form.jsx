@@ -70,11 +70,11 @@ class UploadForm extends React.Component{
             </div>
 
             <div>
-              <span>Selected File: {this.state.selectedFile ? this.state.selectedFile.name : ""}</span>
+            {this.state.selectedFile ?
+              <span><strong>Selected File:</strong> {this.state.selectedFile.name}</span> : "" }
             </div>
-            <label>Or enter an external url:
+            <label>Or enter an external url:</label>
             <input type="text" onChange={ this.onUrlChange} value={this.state.externalUrl}></input>
-            </label>
             { this.errorList()}
 
             <input type="submit" value="Upload Answer"></input>

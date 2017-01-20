@@ -23,8 +23,6 @@ export const receiveUploadErrors = errors => ({
 
 const _uploadErrorMsg = "An upload error occurred. Please check your file and try again.";
 
-
-
 export const createAnswer = (file, questionId) => dispatch =>
 (
   AnswerAPIUtil.sendToCloudinary(file).then(
@@ -33,13 +31,6 @@ export const createAnswer = (file, questionId) => dispatch =>
     res2 => dispatch(receiveAnswer(res2), err2 => dispatch(receiveUploadErrors(err2.responseJSON))))
 );
 
-// export const createAnswer = (file, questionId) => dispatch =>
-// (
-//   AnswerAPIUtil.sendToCloudinary(file).then(
-//     res => AnswerAPIUtil.createAnswer(res.url, questionId)).then(
-//     res2 => dispatch(receiveAnswer(res2)).catch(
-//     err => dispatch(receiveUploadErrors(err.responseJSON))))
-// );
 
 // TODO: delete from cloudinary as well!
 export const deleteAnswer = id => dispatch => (
