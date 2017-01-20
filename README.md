@@ -25,7 +25,7 @@ The question index page is "home" for logged-in users, and contains a listing of
 
 
 ### Question Detail
-The question detail view
+The question detail view displays all of the answers to a question, a like button and like count for each answer and a button to access the answer upload form.
 ![question detail](https://github.com/madrev/askagram/blob/master/docs/screenshots/question_detail.png)
 
 
@@ -40,7 +40,7 @@ Answer submission is done using a custom-built upload widget that sends photos -
 Askagram's search bar is supported by the [pg-search][pg-search] gem, which extends the functionality of ActiveRecord to harness the power of PostgreSQL's text search. Each keystroke in the search bar results in an API call to the QuestionsController and a re-rendering of the search results component to reflect changes in the results.
 
 [pg-search]: https://github.com/Casecommons/pg_search
-![search](https://github.com/madrev/askagram/blob/master/docs/screenshots/search_results.png)
+![search](https://github.com/madrev/askagram/blob/master/docs/screenshots/search_resultsgit pu.png)
 
 ## Features in development
 The core functionality and interface of Askagram was designed and built in two weeks, and each day the list of features for future development has grown longer.
