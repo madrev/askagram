@@ -17,7 +17,7 @@ class NavBar extends React.Component {
   render() {
     return <nav className="main-nav">
       <Link to="/"><h1 className="logo">askagram</h1></Link>
-      <SearchBarContainer />
+      { this.props.location.pathname !== "/" ?  <SearchBarContainer /> : "" }
       <AuthDisplay currentUser={ this.props.currentUser } logout={ this.logoutAndRedirect } />
     </nav>;
   }
