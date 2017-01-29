@@ -29,6 +29,7 @@ gem 'rails_12factor'
 gem 'pry-rails'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'seed_dump'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
