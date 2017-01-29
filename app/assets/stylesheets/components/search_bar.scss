@@ -42,9 +42,10 @@
     }
   }
 
-  ul li:hover {
+  ul .active li {
     background-color: $gray;
   }
+
 
 
 }

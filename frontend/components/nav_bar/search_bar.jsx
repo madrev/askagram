@@ -26,7 +26,6 @@ class SearchBar extends React.Component {
     });
   }
 
-
   componentWillUpdate(nextProps, nextState) {
     if( this.state.query !== nextState.query) {
       this.props.searchQuestions(nextState.query).then( () =>
@@ -76,8 +75,9 @@ class SearchBar extends React.Component {
              value= { this.state.query }
              onChange= { this.updateQuery }>
       </input>
-      <SearchResults searchResults={this.props.searchResults }
-                     />
+      { this.state.resultLength > 0 &&
+        <SearchResults searchResults={this.props.searchResults }
+                       activeRow= { this.state.activeRow }/> }
 
 
     </div>;
