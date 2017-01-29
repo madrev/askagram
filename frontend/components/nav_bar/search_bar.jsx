@@ -80,7 +80,7 @@ class SearchBar extends React.Component {
   render() {
     return <div className="search-container">
       <input type="text"
-             placeholder="Search questions PLZZZ..."
+             placeholder="Search questions..."
              className = "search-field"
              onKeyDown= {this.handleKeyPress}
              value= { this.state.query }
