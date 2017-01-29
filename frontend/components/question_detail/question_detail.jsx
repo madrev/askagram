@@ -53,7 +53,9 @@ class QuestionDetail extends React.Component {
                                                answer={answer}
                                                ownAnswer={this.ownAnswer(answer)}
                                                deleteAnswer={this.props.deleteAnswer} />));
-    } else if (this.props.title !== "") {
+    }
+// Checks for the case where the question has not been fetched yet
+    else if (this.props.title !== "") {
       return <div className="no-answers-message">
         <h4>There's nothing here.</h4>
         <span>Be the first to answer this question!</span>

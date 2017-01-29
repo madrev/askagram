@@ -26,9 +26,10 @@ const _uploadErrorMsg = "An upload error occurred. Please check your file and tr
 export const createAnswer = (file, questionId) => dispatch =>
 (
   AnswerAPIUtil.sendToCloudinary(file).then(
-    res => AnswerAPIUtil.createAnswer(res.url, questionId),
-    err => dispatch(receiveUploadErrors([_uploadErrorMsg]))).then(
-    res2 => dispatch(receiveAnswer(res2), err2 => dispatch(receiveUploadErrors(err2.responseJSON))))
+    cloudResponse => AnswerAPIUtil.createAnswer(cloudResponse.url, questionId),
+    cloudErr => dispatch(receiveUploadErrors([_uploadErrorMsg]))).then(
+    response => dispatch(receiveAnswer(response),
+    err => dispatch(receiveUploadErrors(err.responseJSON))))
 );
 
 
