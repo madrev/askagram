@@ -7,6 +7,11 @@ export const answersAsArray = answers => (
   answers[id] )
 );
 
+export const searchResultsAsArray = searchResults => (
+   Object.keys(searchResults || {} ).map( id =>
+  searchResults[id] )
+);
+
 export const questionsAsArray = questions => (
    Object.keys(questions.questions || {} ).map( id =>
   questions.questions[id] )

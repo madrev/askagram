@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       query: "",
-      resultLength: Object.keys(this.props.searchResults).length,
+      resultLength: this.props.searchResults.length,
       activeRow: null
     };
     this.updateQuery = this.updateQuery.bind(this);
@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
 
   updateResults() {
     this.setState({
-      resultLength: Object.keys(this.props.searchResults).length,
+      resultLength: this.props.searchResults.length,
       activeRow: null
     });
   }
