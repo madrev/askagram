@@ -38,8 +38,17 @@ class SearchBar extends React.Component {
   }
 
   handleKeyPress(e) {
-    if(e.key === "ArrowUp") this.scrollUp();
-    else if(e.key === "ArrowDown") this.scrollDown();
+    switch(e.key) {
+      case 'ArrowUp':
+        this.scrollUp();
+        break;
+      case 'ArrowDown':
+        this.scrollDown();
+        break;
+      case 'Enter':
+        this.navigateToResult();
+        break;
+    }
   }
 
   scrollUp() {
@@ -53,17 +62,19 @@ class SearchBar extends React.Component {
 
   scrollDown() {
     let lastRow = this.state.resultLength - 1;
-    console.log("scrolling down...");
     if(this.state.activeRow === null || this.state.activeRow === lastRow) {
-        console.log(this.state.activeRow);
-        console.log(`null or ${lastRow}...`);
         this.setState({ activeRow: 0 });
       } else {
-        console.log('adding one...');
         this.setState({ activeRow: this.state.activeRow + 1});
       }
   }
 
+  navigateToResult() {
+    if(this.state.activeRow !== null) {
+      let activeResultId = this.props.searchResults[this.state.activeRow].id;
+      this.props.router.push(`/questions/${activeResultId}`);
+    }
+  }
 
 
   render() {
