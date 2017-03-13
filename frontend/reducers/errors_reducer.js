@@ -11,7 +11,6 @@ const errorsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_UPLOAD_ERRORS:
-      console.log(action.errors);
       return merge({}, _defaultState, { uploadFormErrors: action.errors});
     case RECEIVE_QUESTION_ERRORS:
       return merge({}, _defaultState, { questionFormErrors: action.errors});

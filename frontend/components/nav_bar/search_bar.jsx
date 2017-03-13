@@ -82,22 +82,17 @@ class SearchBar extends React.Component {
       <input type="text"
              placeholder="Search questions..."
              className = "search-field"
-             onKeyDown= {this.handleKeyPress}
+             onKeyDown= { this.handleKeyPress }
              value= { this.state.query }
              onChange= { this.updateQuery }>
       </input>
       { this.state.resultLength > 0 &&
         <SearchResults searchResults={this.props.searchResults }
                        activeRow= { this.state.activeRow }/> }
-
-
     </div>;
 
 
   }
-
-
-
 
 }
 
