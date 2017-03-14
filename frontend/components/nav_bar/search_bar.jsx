@@ -9,7 +9,8 @@ class SearchBar extends React.Component {
     this.state = {
       query: "",
       resultLength: this.props.searchResults.length,
-      activeRow: null
+      activeRow: null,
+      noResults: false
     };
     this.updateQuery = this.updateQuery.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -20,10 +21,16 @@ class SearchBar extends React.Component {
   }
 
   updateResults() {
-    this.setState({
-      resultLength: this.props.searchResults.length,
-      activeRow: null
-    });
+    let length = this.props.searchResults.length;
+    if(length === 0 && this.state.query !== "") {
+      this.setState({noResults: true});
+    } else {
+      this.setState({
+        resultLength: this.props.searchResults.length,
+        activeRow: null,
+        noResults: false
+      });
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -89,6 +96,10 @@ class SearchBar extends React.Component {
       { this.state.resultLength > 0 &&
         <SearchResults searchResults={this.props.searchResults }
                        activeRow= { this.state.activeRow }/> }
+      { this.state.noResults &&
+        <div className="no-search-results">
+          <p>Sorry, no results for <strong>{this.state.query}</strong>. <br/>Try asking your own question!</p>
+        </div>}
     </div>;
 
 
